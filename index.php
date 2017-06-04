@@ -19,15 +19,9 @@
 <?php 
 	//echo $_COOKIE["note"];
 ?>
-<p>Your notes: so far</p>
+<p>Your notes so far:</p>
 <form method="post" action="addnote.php" id="usrform">
-	<textarea rows="4" cols="50" name="comment" form="usrform">
-	<?php 
-		if (isset($_COOKIE["note"])) {
-			echo $_COOKIE["note"];
-		}
-	?>
-	</textarea>
+	<textarea rows="4" cols="50" name="markmedTekst" form="usrform"><?php if (isset($_COOKIE["note"])) {echo $_COOKIE["note"];}?></textarea>
 	<br>
 	<input type="submit" value="Lisa kommentaar">
 </form>
