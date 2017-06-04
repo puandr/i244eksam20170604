@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
+	//If cookie is not set, set acookie and insert a blank "note" variable.
 	if (!isset($_COOKIE["note"])) {
 		$cookie_name = "note";
 		$note = "";
-		setcookie($cookie_name, $note, time() + (86400 * 30), "/"); // 86400 = 1 day	
+		setcookie($cookie_name, $note, time() + (86400 * 30), "/"); // 86400 = 1 day, cookie live time is 30 days.
 	}
 ?>
 
@@ -28,6 +29,7 @@
 <p>Your notes so far:</p>
 
 <form method="post" action="addnote.php" id="usrform">
+	<!-- If code below break in multiple rows, then every note save adds a tabultion mark at the beginning-->
 	<p><textarea rows="10" cols="50" name="noteText" form="usrform"><?php if (isset($_COOKIE["note"])) {echo $_COOKIE["note"];}?></textarea></p>
 	<p><input type="submit" value="Save note"></p>
 </form>
